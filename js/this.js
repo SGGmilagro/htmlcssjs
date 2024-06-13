@@ -7,18 +7,30 @@ named()
 
 console.log('------------------')
 
-let unnamed = () => {
+function named= (){
+    var a = 3;
+    let b = 4;
+    function name_inside(){
+      console.log(">>", this);
+    }
+    console.log(this);
+    console.log("Now calling named_inisde");
+    named_inside();
+}
+named2();
+
+let unnamed_arrow = () => {
     var a = 3;
     let b = 4;
     console.log(this);
-}
-unnamed()
+};
+unnamed_arrow();
 
 console.log('------------------')
 
 function surroundingone() {
     function internal () {
-       console.log(this); 
+       console.log(this);
     }
     internal()
 }
@@ -28,7 +40,7 @@ surroundingone()
 console.log('------------------')
 
 function surroundingtwo() {
-    let internal  = () => console.log(this); 
+    let internal  = () => console.log(this);
     internal()
 }
 

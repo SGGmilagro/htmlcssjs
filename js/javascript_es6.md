@@ -4,6 +4,7 @@
 
 - var: Function-scoped, can be redeclared and updated.
 - let: Block-scoped, can be updated but not redeclared in the same scope.
+  (only was you can redifined, creo haha)
 - const: Block-scoped, cannot be updated or redeclared. Ensures immutability for primitive values.
 
 ```javascript
@@ -35,9 +36,9 @@ function greet() {
 }
 
 // Function Expression
-const greet = function() {
+const greet = function () {
   return "Hello!";
-}
+};
 
 // Arrow Function
 const greet = () => "Hello!";
@@ -65,7 +66,6 @@ const person = new Person("Alice");
 console.log(person.greet()); // Hello, Alice!
 ```
 
-
 ### 4. Useful ES6 Features for Web Applications:
 
 - Template Literals: Embed expressions within strings using backticks.
@@ -79,13 +79,15 @@ const greeting = `Hello, ${name}!`;
 
 // Destructuring Assignment
 const [a, b] = [1, 2];
-const {name, age} = {name: "Alice", age: 25};
+const { name, age } = { name: "Alice", age: 25 };
 
 // Modules
 // person.js
-export class Person { /* ... */ }
+export class Person {
+  /* ... */
+}
 // main.js
-import { Person } from './person.js';
+import { Person } from "./person.js";
 ```
 
 ### 5. Understanding the `...` (Spread and Rest) Syntax in JavaScript
@@ -159,17 +161,15 @@ logAll(1, 2, 3); // [1, 2, 3]
 - [MDN Web Docs - Spread Syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 - [MDN Web Docs - Rest Parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
 
-
-
 ### 6. HTTP Requests:
 
 - Fetch API: Simplified way to make network requests.
 
 ```javascript
-fetch('https://api.example.com/data')
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(error => console.error('Error:', error));
+fetch("https://api.example.com/data")
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.error("Error:", error));
 ```
 
 ### 7. History API:
@@ -181,14 +181,19 @@ Manage browser history for single-page applications (SPA).
 
 ```javascript
 // Push State
-history.pushState({page: 1}, "title 1", "?page=1");
+history.pushState({ page: 1 }, "title 1", "?page=1");
 
 // Replace State
-history.replaceState({page: 2}, "title 2", "?page=2");
+history.replaceState({ page: 2 }, "title 2", "?page=2");
 
 // Handle Popstate
-window.onpopstate = function(event) {
-  console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+window.onpopstate = function (event) {
+  console.log(
+    "location: " +
+      document.location +
+      ", state: " +
+      JSON.stringify(event.state),
+  );
 };
 ```
 
@@ -219,10 +224,10 @@ Resolving a Promise
 
 ```javascript
 promise
-  .then(result => {
+  .then((result) => {
     console.log(result);
   })
-  .catch(error => {
+  .catch((error) => {
     console.error(error);
   });
 ```
@@ -236,11 +241,11 @@ Defining an async function
 ```javascript
 async function fetchData() {
   try {
-    const response = await fetch('https://api.example.com/data');
+    const response = await fetch("https://api.example.com/data");
     const data = await response.json();
     console.log(data);
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
   }
 }
 
@@ -258,16 +263,16 @@ async function getData(url) {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error("Network response was not ok");
     }
     const data = await response.json();
     console.log(data);
   } catch (error) {
-    console.error('Fetch error:', error);
+    console.error("Fetch error:", error);
   }
 }
 
-getData('https://api.example.com/data');
+getData("https://api.example.com/data");
 ```
 
 #### Summary

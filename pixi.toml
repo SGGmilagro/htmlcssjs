@@ -10,3 +10,4 @@ platforms = ["osx-arm64", "linux-64", "osx-64"]
 
 [dependencies]
 deno = ">=1.43.6,<1.44"
+python = ">=3.12.3,<3.13"
